@@ -1,9 +1,4 @@
 #include "tcp_connection.hpp"
-#include <boost/enable_shared_from_this.hpp>
-#include <iostream>
-#include <boost/asio.hpp>
-#include <boost/bind.hpp>
-#include <string>
 #include <syslog.h>
 
 void tcp_connection::start(){
@@ -20,7 +15,7 @@ void tcp_connection::start(){
 
 	boost::shared_ptr<tcp_connection> tcp_connection::create(boost::asio::io_service& io_service){
     	return boost::shared_ptr<tcp_connection>(new tcp_connection(io_service));
-  	
+
   	}boost::asio::local::stream_protocol::socket& tcp_connection::socket(){
     	return socket_;
 
@@ -39,7 +34,8 @@ void tcp_connection::start(){
 
         std::string temp = "String: ";
         temp += make_string(read_buffer);
-        syslog (LOG_NOTICE, temp.c_str());
+        syslog (LOG_NOTICE, "%s", temp.c_str());
 
         closelog();
+        send_msg("Received.");
   	}
