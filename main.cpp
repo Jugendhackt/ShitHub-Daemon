@@ -4,7 +4,7 @@
 #include <csignal>
 #include <syslog.h>
 #include <boost/asio.hpp>
-#include "src/server.hpp"
+#include "src/Server/server.hpp"
 
 static void start_daemon(){
 	pid_t pid;

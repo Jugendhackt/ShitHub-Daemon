@@ -11,10 +11,10 @@ if(Boost_FOUND)
 endif()
 
 add_executable(ShitHubDaemon
-        src/server.cpp
-        src/server.hpp
-        src/tcp_connection.cpp
-        src/tcp_connection.hpp
+        src/Server/server.cpp
+        src/Server/server.hpp
+        src/Server/ipc_connection.cpp
+        src/Server/ipc_connection.hpp
         main.cpp
         )
 
