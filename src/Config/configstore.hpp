@@ -6,6 +6,7 @@
 #define SHITHUBDAEMON_CONFIGSTORE_HPP
 
 class configstore{
+public:
     configstore();
 
 };

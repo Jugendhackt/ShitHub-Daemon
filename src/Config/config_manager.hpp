@@ -5,6 +5,7 @@
 #define SHITHUBDAEMON_CONFIG_MANAGER_HPP
 
 #include "configstore.hpp"
+#include <string>
 
 class config_manager{
 private:

@@ -3,7 +3,8 @@
 //
 
 #include "config_manager.hpp"
-config_manager::config_manager() : cs(){
+
+config_manager::config_manager(){
 }
 
 bool config_manager::create_config_cash() {
