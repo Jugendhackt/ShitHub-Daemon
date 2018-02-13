@@ -16,7 +16,10 @@ add_executable(ShitHubDaemon
         src/Server/ipc_connection.cpp
         src/Server/ipc_connection.hpp
         main.cpp
-        src/Config/config_manager.hpp src/Config/configstore.hpp src/Config/config_manager.cpp)
+        src/Config/ConfigStore.hpp
+        src/Config/ConfigStore.cpp
+        src/Config/ConfigManager.hpp
+        src/Config/ConfigManager.cpp)
 
 if(Boost_FOUND)
     target_link_libraries(ShitHubDaemon ${Boost_LIBRARIES})
