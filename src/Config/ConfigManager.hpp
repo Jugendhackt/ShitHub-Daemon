@@ -18,7 +18,7 @@ public:
     //Method for adding ConfigStores to ConfigManager
     bool addConfigStore(ConfigStore);
 
-    //Get method; Resolves prefix to correct configstore
+    //Get method; Resolves prefix to correct configstore and returns value
     template <class T>
     T get(std::string);
 };
