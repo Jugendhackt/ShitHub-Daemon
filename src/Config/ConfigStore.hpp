@@ -7,13 +7,13 @@
 
 #include <string>
 #include <map>
+#include <boost/any.hpp>
 
 class ConfigStore{
 private:
     std::string prefix; //Prefix of configstore (unique); For example "main" or "database"
 
-    template <class T>
-    std::map<std::string, T> values; //Key-Value
+    std::map<std::string, boost::any> values; //Key-Value
 
     //Method for loading values:
     bool loadValues(); //TODO: Return Error Class with Error Message etc.
