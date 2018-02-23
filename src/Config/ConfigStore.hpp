@@ -9,18 +9,22 @@
 #include <map>
 #include <boost/any.hpp>
 
-class ConfigStore{
-private:
-    std::string prefix; //Prefix of configstore (unique); For example "main" or "database"
+namespace Config {
+    class ConfigStore {
+    private:
+        std::string prefix; //Prefix of configstore (unique); For example "main" or "database"
+        std::string filepath;
+        std::string templatepath;
+        std::map<std::string, boost::any> values; //Key-Value
 
-    std::map<std::string, boost::any> values; //Key-Value
+        //Method for loading values:
+        bool loadValues(); //TODO: Return Error Class with Error Message etc.
+        bool checkValues(); //TODO: Return Error Class with Error Message etc.
 
-    //Method for loading values:
-    bool loadValues(); //TODO: Return Error Class with Error Message etc.
-    bool checkValues(); //TODO: Return Error Class with Error Message etc.
-    
-public:
-    ConfigStore(std::string filename); //Construct configstore from configfile, checks Config values
-};
+    public:
+        ConfigStore(const std::string &,
+                    const std::string &); //Construct configstore from configfile, checks Config values
+    };
+}
 
 #endif //SHITHUBDAEMON_CONFIGSTORE_HPP

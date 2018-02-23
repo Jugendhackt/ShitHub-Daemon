@@ -8,18 +8,20 @@
 #include <map>
 #include "ConfigStore.hpp"
 
-class ConfigManager{
-private:
-    std::map<std::string, ConfigStore> configstores; //Map with configstore and prefix
+namespace Config {
+    class ConfigManager {
+    private:
+        std::map<std::string, ConfigStore> configstores; //Map with configstore and prefix
 
-public:
-    ConfigManager();
+    public:
+        ConfigManager();
 
-    //Method for adding ConfigStores to ConfigManager
-    bool addConfigStore(ConfigStore);
+        //Method for adding ConfigStores to ConfigManager
+        bool addConfigStore(ConfigStore);
 
-    //Get method; Resolves prefix to correct configstore and returns value
-    template <class T>
-    T get(std::string);
-};
+        //Get method; Resolves prefix to correct configstore and returns value
+        template<class T>
+        T get(std::string);
+    };
+}
 #endif //SHITHUBDAEMON_CONFIG_MANAGER_HPP

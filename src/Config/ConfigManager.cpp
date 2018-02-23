@@ -4,6 +4,6 @@
 
 #include "ConfigManager.hpp"
 
-ConfigManager::ConfigManager() : configstores(){
+Config::ConfigManager::ConfigManager() : configstores(){
 
 }
