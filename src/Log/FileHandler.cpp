@@ -14,12 +14,6 @@ bool Log::FileHandler::action(std::string &msg) {
     return false;
 }
 
-bool Log::FileHandler::action(std::string &msg, std::exception &e) {
-    std::ofstream ofs(path, std::ofstream::app);
-    ofs << Utils::Timestamp::getTimestamp()<<msg<<" "<<e.what()<<std::endl;
-    return false;
-}
-
 Log::FileHandler::FileHandler(std::string& tpath){
     path = tpath;
 }

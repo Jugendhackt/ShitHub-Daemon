@@ -13,8 +13,8 @@
 namespace Log {
     class Log {
     public:
-        static bool print(int, std::string&);
-        static bool print(int, std::string&, std::exception&);
+        static bool print(Levels, std::string&);
+        static bool print(Levels, std::string&, std::exception&);
 
         static bool addHandler(Levels, Handler&);
 

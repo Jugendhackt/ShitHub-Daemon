@@ -12,7 +12,6 @@ namespace Log {
     class Handler {
     public:
         virtual bool action(std::string&)= 0;
-        virtual bool action(std::string&, std::exception&)= 0;
     };
 }
 

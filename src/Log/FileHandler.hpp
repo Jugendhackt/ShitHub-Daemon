@@ -14,7 +14,6 @@ namespace Log {
 
         explicit FileHandler(std::string&);
         bool action(std::string&) override;
-        bool action(std::string&, std::exception&) override;
     private:
         std::string path;
     };

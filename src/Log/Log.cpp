@@ -6,14 +6,6 @@
 #include "Log.hpp"
 #include <string>
 
-bool Log::Log::print(int, std::string &, std::exception&) {
-    return false;
-}
-
-bool Log::Log::print(int, std::string &) {
-    return false;
-}
-
 std::vector<Log::Handler*> Log::Log::critical = {};
 std::vector<Log::Handler*> Log::Log::warn = {};
 std::vector<Log::Handler*> Log::Log::error = {};
@@ -42,4 +34,39 @@ bool Log::Log::addHandler(Levels level, Handler &handler) {
     }
 
     return true;
+}
+
+bool Log::Log::print(Levels level, std::string &msg, std::exception &excep) {
+    std::string test = msg+" "+excep.what();
+    print(level, test);
+    return false;
+}
+
+bool Log::Log::print(Levels level, std::string &msg) {
+    if(level & Levels::CRITICAL){
+        for (auto &i : critical) {
+            i->action(msg);
+        }
+    }else if(level & Levels::WARN){
+        for (auto &i : warn) {
+            i->action(msg);
+        }
+    }else if(level & Levels::ERROR){
+        for (auto &i : error) {
+            i->action(msg);
+        }
+    }else if(level & Levels::INFO){
+        for (auto &i : info) {
+            i->action(msg);
+        }
+    }else if(level & Levels::DEBUG){
+        for (auto &i : debug) {
+            i->action(msg);
+        }
+    }else if(level & Levels::TRACE){
+        for (auto &i : trace) {
+            i->action(msg);
+        }
+    }
+    return false;
 }
