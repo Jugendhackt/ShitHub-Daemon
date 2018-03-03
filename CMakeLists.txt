@@ -19,7 +19,7 @@ add_executable(ShitHubDaemon
         src/Config/ConfigStore.hpp
         src/Config/ConfigStore.cpp
         src/Config/ConfigManager.hpp
-        src/Config/ConfigManager.cpp src/Utils/Filepaths.cpp src/Utils/Filepaths.hpp src/Log/Log.cpp src/Log/Log.hpp src/Log/Levels.hpp src/Log/Handler.hpp src/Log/FileHandler.cpp src/Log/FileHandler.hpp src/Utils/Timestamp.cpp src/Utils/Timestamp.hpp)
+        src/Config/ConfigManager.cpp src/Utils/Filepaths.cpp src/Utils/Filepaths.hpp src/Log/Log.cpp src/Log/Log.hpp src/Log/Levels.hpp src/Log/Handler.hpp src/Log/FileHandler.cpp src/Log/FileHandler.hpp src/Utils/Timestamp.cpp src/Utils/Timestamp.hpp src/Utils/Split.cpp src/Utils/Split.hpp)
 
 if(Boost_FOUND)
     target_link_libraries(ShitHubDaemon ${Boost_LIBRARIES})
