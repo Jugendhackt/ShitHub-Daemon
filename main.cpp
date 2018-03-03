@@ -5,6 +5,11 @@
 #include <syslog.h>
 #include <boost/asio.hpp>
 #include "src/Server/server.hpp"
+#include "src/Utils/Filepaths.hpp"
+#include "src/Log/FileHandler.hpp"
+#include "src/Log/Log.hpp"
+#include "src/Log/Levels.hpp"
+#include "src/Utils/Split.hpp"
 
 static void start_daemon(){
 	pid_t pid;
@@ -49,19 +54,28 @@ static void start_daemon(){
 }
 
 int main(){
-	start_daemon();
+    /*
+    start_daemon();
 
-	while(1){
-		syslog (LOG_NOTICE, "First daemon started.");
-		boost::asio::io_service io_service;
-    	server myserver(&io_service, 13);
+    while(1){
+        syslog (LOG_NOTICE, "First daemon started.");
+        boost::asio::io_service io_service;
+        server myserver(&io_service, 13);
 
-    	io_service.run();
-		break;
-	}
+        io_service.run();
+        break;
+    }
 
-	syslog (LOG_NOTICE, "First daemon terminated.");
+    syslog (LOG_NOTICE, "First daemon terminated.");
     closelog();
+     */
+    std::string path = "/home/anghenfil/testlog";
+    Log::FileHandler fh(path);
+    Log::Log::addHandler(Log::Levels::CRITICAL, fh);
+
+    std::string msg = "Hallo.";
+    std::runtime_error e("Test");
+    Log::Log::print(Log::Levels::CRITICAL, msg, e);
 
     return EXIT_SUCCESS;
 }
