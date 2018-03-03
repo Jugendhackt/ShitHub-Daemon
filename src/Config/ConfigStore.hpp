@@ -16,14 +16,15 @@ namespace Config {
         std::string filepath;
         std::string templatepath;
         std::map<std::string, boost::any> values; //Key-Value
+        bool failbit;
 
         //Method for loading values:
         bool loadValues(); //TODO: Return Error Class with Error Message etc.
         bool checkValues(); //TODO: Return Error Class with Error Message etc.
+        bool processLine(std::string&);
 
     public:
-        ConfigStore(const std::string &,
-                    const std::string &); //Construct configstore from configfile, checks Config values
+        ConfigStore(const std::string &, const std::string &); //Construct configstore from configfile, checks Config values
     };
 }
 
