@@ -1,6 +1,8 @@
 # ShitHub-Daemon
 Background daemon for ShitHub (jugendhackt/shithub)
 
+[![Build Status](https://travis-ci.org/Jugendhackt/ShitHub-Daemon.svg?branch=master)](https://travis-ci.org/Jugendhackt/ShitHub-Daemon)
+
 ### Protocol specifications
 The ShitHub-Daemon uses UNIX domain sockets (IPC socket) to communicate with the PHP backend.
 We will provide a separate PHP package for communication with this daemon. 
