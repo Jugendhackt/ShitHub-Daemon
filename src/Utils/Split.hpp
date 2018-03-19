@@ -10,7 +10,7 @@
 namespace Utils {
     class Split {
     public:
-        static std::vector<std::string> split(std::string &);
+        static std::vector<std::string> split(std::string &, const char *);
     };
 }
 
