@@ -24,3 +24,6 @@ add_executable(ShitHubDaemon
 if(Boost_FOUND)
     target_link_libraries(ShitHubDaemon ${Boost_LIBRARIES})
 endif()
+
+add_subdirectory(lib/tinyxml2)
+target_link_libraries(ShitHubDaemon tinyxml2)
