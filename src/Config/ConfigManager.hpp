@@ -17,7 +17,7 @@ namespace Config {
         ConfigManager();
 
         //Method for adding ConfigStores to ConfigManager
-        bool addConfigStore(ConfigStore);
+        void addConfigStore(ConfigStore);
 
         //Get method; Resolves prefix to correct configstore and returns value
         template<class T>
