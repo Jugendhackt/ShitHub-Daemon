@@ -75,3 +75,30 @@ bool Config::ConfigStore::processLine(std::string &line) {
         return false;
     }
 }
+
+template<class T>
+T Config::ConfigStore::get(std::string key) {
+   T value;
+
+    it = this->values.find(key);
+    if(it != values.end()){
+        //Key found in map
+        try {
+            value = boost::any_cast<T>(it->second);
+            return value;
+        }catch(boost::bad_any_cast &e){
+            std::string error = "Config::ConfigStore::get Config "+this->prefix+": "+key+" is type "+it->second.type().name();
+            Log::Log::print(Log::ERROR, error, e);
+            return false;
+        }
+    }else{
+        //Key not found in map
+        std::string error = "Config::ConfigStore::get Config "+this->prefix+": "+key+" not found.";
+        Log::Log::print(Log::WARN, error);
+        return false;
+    }
+}
+
+std::string Config::ConfigStore::getPrefix() {
+    return prefix;
+}

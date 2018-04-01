@@ -17,14 +17,19 @@ namespace Config {
         std::string templatepath;
         std::map<std::string, boost::any> values; //Key-Value
         bool failbit;
+        std::map<std::string, boost::any>::iterator it;
 
         //Method for loading values:
         bool loadValues(); //TODO: Return Error Class with Error Message etc.
         bool checkValues(); //TODO: Return Error Class with Error Message etc.
         bool processLine(std::string&);
 
+        //Method for getting values:
+        template<class T>
+        T get(std::string);
     public:
         ConfigStore(const std::string &, const std::string &); //Construct configstore from configfile, checks Config values
+        std::string getPrefix();
     };
 }
 
