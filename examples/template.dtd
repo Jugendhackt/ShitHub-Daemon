@@ -1,0 +1,9 @@
+<!ELEMENT SHConfig (Prefix, Description, Fields)>
+<!ATTLIST SHConfig version CDATA #REQUIRED>
+<!ELEMENT Prefix (#PCDATA)>
+<!ELEMENT Description (#PCDATA)>
+<!ELEMENT Fields (Field)>
+<!ELEMENT Field (Key, Type)>
+<!ATTLIST Field required (yes|no) #REQUIRED>
+<!ELEMENT Key (#PCDATA)>
+<!ELEMENT Type (#PCDATA)>

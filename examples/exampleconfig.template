@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SHConfig SYSTEM "template.dtd">
+<SHConfig version="0.1" xmlns="http://def.anghenfil.de/SH-Config">
+    <Prefix>main</Prefix>
+    <Description>Main config</Description>
+    <Fields>
+        <Field required="yes">
+            <Key>hostname</Key>
+            <Type>String</Type>
+        </Field>
+    </Fields>
+</SHConfig>

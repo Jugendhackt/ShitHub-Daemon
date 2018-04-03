@@ -10,6 +10,7 @@
 #include "src/Log/Log.hpp"
 #include "src/Log/Levels.hpp"
 #include "src/Utils/Split.hpp"
+#include "lib/tinyxml2/tinyxml2.h"
 
 static void start_daemon(){
 	pid_t pid;
@@ -76,6 +77,9 @@ int main(){
     std::string msg = "Hallo.";
     std::runtime_error e("Test");
     Log::Log::print(Log::Levels::CRITICAL, msg, e);
+
+    tinyxml2::XMLDocument doc;
+    doc.LoadFile("dream.xml");
 
     return EXIT_SUCCESS;
 }
