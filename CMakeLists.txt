@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.9)
 project(ShitHubDaemon)
+include(FindXercesC)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+
 find_package(Boost 1.54.0 COMPONENTS system filesystem REQUIRED)
 if(Boost_FOUND)
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
@@ -32,14 +35,12 @@ add_executable(ShitHubDaemon
         src/Utils/Timestamp.hpp
         src/Utils/Split.cpp
         src/Utils/Split.hpp
-        lib/tinyxml2/tinyxml2.cpp
         )
-
-target_include_directories(ShitHubDaemon PUBLIC lib/tinyxml2)
 
 if(Boost_FOUND)
     target_link_libraries(ShitHubDaemon ${Boost_LIBRARIES})
 endif()
 
-add_subdirectory(lib/tinyxml2)
-target_link_libraries(ShitHubDaemon tinyxml2)
+find_package(XercesC REQUIRED)
+include_directories( ${XercesC_INCLUDE_DIR} )
+target_link_libraries ( ${PROJECT_NAME} ${XercesC_LIBRARY} )
