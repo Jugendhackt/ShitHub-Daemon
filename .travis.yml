@@ -2,7 +2,7 @@ language: cpp
 compiler: gcc
 
 before_script:
-  - sudo apt-get install libboost-all-dev xerces-c
+  - sudo apt-get install libboost-all-dev libxerces-c-dev
 script:
   - cmake .
   - make
