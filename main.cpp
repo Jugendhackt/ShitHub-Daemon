@@ -5,12 +5,9 @@
 #include <syslog.h>
 #include <boost/asio.hpp>
 #include "src/Server/server.hpp"
-#include "src/Utils/Filepaths.hpp"
 #include "src/Log/FileHandler.hpp"
 #include "src/Log/Log.hpp"
-#include "src/Log/Levels.hpp"
-#include "src/Utils/Split.hpp"
-#include "lib/tinyxml2/tinyxml2.h"
+#include <xercesc/util/PlatformUtils.hpp>
 
 static void start_daemon(){
 	pid_t pid;
@@ -78,8 +75,13 @@ int main(){
     std::runtime_error e("Test");
     Log::Log::print(Log::Levels::CRITICAL, msg, e);
 
-    tinyxml2::XMLDocument doc;
-    doc.LoadFile("dream.xml");
+    try {
+        xercesc::XMLPlatformUtils::Initialize();
+    }catch (const xercesc::XMLException& toCatch) {
+        return 1;
+    }
+
+    xercesc::XMLPlatformUtils::Terminate();
 
     return EXIT_SUCCESS;
 }
